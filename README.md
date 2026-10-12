@@ -21,6 +21,10 @@ npm run build
 npm run preview
 ```
 
+## GitHub Pages deployment
+
+The GitHub Actions workflow in `.github/workflows/deploy.yml` builds and deploys the site to GitHub Pages when changes are pushed to `main`. In the repository settings, set **Pages → Build and deployment → Source** to **GitHub Actions**.
+
 ## Project notes
 
 - The hero artwork switches between `public/cover.png` and `public/cover-marathi-1.png` with the language selector.

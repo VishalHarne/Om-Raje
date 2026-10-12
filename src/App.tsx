@@ -227,12 +227,12 @@ const copy = {
 } as const;
 
 const images = {
-  coverEnglish: "/cover.png",
-  coverMarathi: "/cover-marathi-1.png",
-  listening: "/Photos/1.jpg",
-  meeting: "/Photos/2.jpg",
-  portrait: "/Photos/472720921_1146819823481492_5753702808783169087_n.jpg",
-  community: "/Photos/839068335_1373614757889299_3989845849253903020_n.jfif",
+  coverEnglish: `${import.meta.env.BASE_URL}cover.png`,
+  coverMarathi: `${import.meta.env.BASE_URL}cover-marathi-1.png`,
+  listening: `${import.meta.env.BASE_URL}Photos/1.jpg`,
+  meeting: `${import.meta.env.BASE_URL}Photos/2.jpg`,
+  portrait: `${import.meta.env.BASE_URL}Photos/472720921_1146819823481492_5753702808783169087_n.jpg`,
+  community: `${import.meta.env.BASE_URL}Photos/839068335_1373614757889299_3989845849253903020_n.jfif`,
 };
 
 function App() {
