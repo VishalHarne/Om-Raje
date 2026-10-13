@@ -23,7 +23,7 @@ npm run preview
 
 ## GitHub Pages deployment
 
-The GitHub Actions workflow in `.github/workflows/deploy.yml` builds and deploys the site to GitHub Pages when changes are pushed to `main`. To let the workflow enable Pages automatically, add a repository Actions secret named `PAGES_TOKEN` containing a GitHub token with access to this repository and permission to enable Pages. Alternatively, enable Pages once in **Settings → Pages**, choose **GitHub Actions** as the source, and remove the `token` and `enablement` inputs from the configure-pages step.
+The GitHub Actions workflow in `.github/workflows/deploy.yml` builds and deploys the site to GitHub Pages when changes are pushed to `main`. In the repository, open **Settings → Pages → Build and deployment**, set **Source** to **GitHub Actions**, and save. The workflow publishes the compiled `dist/` artifact; do not select **Deploy from a branch**, which would publish the uncompiled React/Vite source and show a blank page.
 
 ## Project notes
 
