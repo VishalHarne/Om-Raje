@@ -21,7 +21,6 @@ type Language = "en" | "mr";
 
 const copy = {
   en: {
-    eyebrow: "A public-service initiative · Dharashiv, Maharashtra",
     nav: ["About", "Public work", "Initiatives", "Events", "Get in touch"],
     heroKicker: "Your voice. Your constituency.",
     heroTitle: "A future built",
@@ -87,7 +86,6 @@ const copy = {
       "Upcoming public meetings and employment-fair dates will appear here once confirmed by the office.",
     eventStatus: "UPDATES COMING SOON",
     eventBody: "Stay connected for verified dates, venues and registration announcements.",
-    follow: "Follow updates",
     eventsCta: "Get in touch",
     contactTag: "05 / YOUR VOICE MATTERS",
     contactTitle: "Let’s make things better.",
@@ -123,7 +121,6 @@ const copy = {
     followLink: "Open social links",
   },
   mr: {
-    eyebrow: "लोकसेवेचा उपक्रम · धाराशिव, महाराष्ट्र",
     nav: ["परिचय", "लोककार्य", "उपक्रम", "कार्यक्रम", "संपर्क"],
     heroKicker: "तुमचा आवाज. तुमचा मतदारसंघ.",
     heroTitle: "एकत्र घडवूया",
@@ -189,7 +186,6 @@ const copy = {
       "आगामी जनसंवाद आणि रोजगार मेळाव्याच्या अधिकृत तारखा निश्चित झाल्यावर येथे जाहीर केल्या जातील.",
     eventStatus: "अद्ययावत माहिती लवकरच",
     eventBody: "अधिकृत तारीख, ठिकाण आणि नोंदणीच्या घोषणांसाठी संपर्कात राहा.",
-    follow: "नवीन माहिती मिळवा",
     eventsCta: "संपर्क साधा",
     contactTag: "०५ / तुमचा आवाज महत्त्वाचा",
     contactTitle: "चला, बदल घडवूया.",
@@ -255,12 +251,6 @@ function App() {
 
   return (
     <main lang={lang === "mr" ? "mr" : "en"} className={lang === "mr" ? "site marathi" : "site"}>
-      <div className="announcement">
-        <span className="announcement-dot" />
-        <span>{t.eyebrow}</span>
-        <a href="#events">{t.follow}<ArrowUpRight size={13} /></a>
-      </div>
-
       <header className="site-header">
         <a className="brand" href="#home" aria-label="Om Raje Nimbalkar home">
           <span className="brand-mark">ओ</span>
@@ -284,7 +274,6 @@ function App() {
             <span className="language-divider">/</span>
             <span className={lang === "mr" ? "language-active" : ""}>मराठी</span>
           </button>
-          <a className="header-cta" href="#contact">{t.connect}<ArrowUpRight size={15} /></a>
           <button
             className="menu-toggle"
             type="button"
@@ -306,8 +295,8 @@ function App() {
         <div className="hero-cover-actions">
           <div className="hero-cover-caption"><span className="kicker-line" />{t.heroKicker}</div>
           <div className="hero-actions">
-            <a className="button button-lime" href="#work">{t.explore}<ArrowDownRight size={16} /></a>
-            <a className="text-link" href="#contact">{t.connect}<ArrowUpRight size={16} /></a>
+            <a className="button button-lime" href="#work">{t.explore}</a>
+            <a className="text-link" href="#contact">{t.connect}</a>
           </div>
         </div>
       </section>
