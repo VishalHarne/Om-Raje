@@ -29,6 +29,12 @@ jobs:
         run: npm ci
       - name: Build website
         run: npm run build
+      - name: Verify Pages build output
+        run: |
+          test -f dist/index.html
+          grep -Eq 'src="/Om-Raje/assets/[^"]+\.js"' dist/index.html
+          grep -Eq 'href="/Om-Raje/assets/[^"]+\.css"' dist/index.html
+          ! grep -q 'src="/src/main.tsx"' dist/index.html
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
       - name: Upload Pages artifact
