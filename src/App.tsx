@@ -40,7 +40,7 @@ const copy = {
     aboutTag: "01 / A PEOPLE'S REPRESENTATIVE",
     aboutTitle: "Grounded in the people. Focused on what’s next.",
     aboutBody:
-      "Omprakash Raje Nimbalkar is a Shiv Sena (Uddhav Balasaheb Thackeray) politician from Maharashtra. He has represented the Osmanabad—now Dharashiv—constituency in the Lok Sabha and has also served in the Maharashtra Legislative Assembly.",
+      "Omprakash Raje Nimbalkar is a Shiv Sena (Eknath Shinde) politician from Maharashtra. He has represented the Osmanabad—now Dharashiv—constituency in the Lok Sabha and has also served in the Maharashtra Legislative Assembly.",
     aboutNote:
       "This is a citizen-facing space to share updates, opportunities and ways to get involved. Public information is presented for context; initiative details and dates will be updated when officially announced.",
     readMore: "A journey of public service",
@@ -143,7 +143,7 @@ const copy = {
     aboutTag: "०१ / जनतेचा प्रतिनिधी",
     aboutTitle: "जनतेशी नाळ. उद्याच्या विकासावर लक्ष.",
     aboutBody:
-      "ओमप्रकाश राजे निंबाळकर हे महाराष्ट्रातील शिवसेना (उद्धव बाळासाहेब ठाकरे) पक्षाचे नेते आहेत. त्यांनी उस्मानाबाद—आताचा धाराशिव—लोकसभा मतदारसंघाचे प्रतिनिधित्व केले असून महाराष्ट्र विधानसभेचे सदस्य म्हणूनही काम केले आहे.",
+      "ओमप्रकाश राजे निंबाळकर हे महाराष्ट्रातील शिवसेना (एकनाथ शिंदे) पक्षाचे नेते आहेत. त्यांनी उस्मानाबाद—आताचा धाराशिव—लोकसभा मतदारसंघाचे प्रतिनिधित्व केले असून महाराष्ट्र विधानसभेचे सदस्य म्हणूनही काम केले आहे.",
     aboutNote:
       "लोकसेवेची माहिती, संधी आणि सहभागाचे मार्ग नागरिकांपर्यंत पोहोचवण्यासाठी हे व्यासपीठ आहे. कार्यक्रम व उपक्रमांच्या अधिकृत तारखा जाहीर झाल्यानंतर येथे अद्ययावत केल्या जातील.",
     readMore: "लोकसेवेचा प्रवास",
