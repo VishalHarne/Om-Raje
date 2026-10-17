@@ -93,12 +93,11 @@ img { display: block; width: 100%; }
 .section-meta { display: flex; align-items: center; justify-content: space-between; color: #7f847a; }
 .section-number { font-size: 9px; font-weight: 700; letter-spacing: .16em; }
 .meta-cross { color: var(--orange); font-size: 17px; }
-.about-layout { display: grid; grid-template-columns: .82fr 1fr; gap: clamp(45px, 10vw, 145px); align-items: center; margin-top: 47px; }
-.about-image-box { position: relative; max-width: 410px; height: 415px; overflow: hidden; background: #282923; }
-.about-image-box::after { content: ""; position: absolute; inset: 38% 0 0; background: linear-gradient(transparent, rgba(10,12,10,.7)); pointer-events: none; }
-.about-image-box img { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; filter: saturate(.77); transition: transform .7s; }
+.about-layout { display: grid; grid-template-columns: .82fr 1fr; gap: clamp(45px, 10vw, 145px); align-items: stretch; margin-top: 47px; }
+.about-image-box { position: relative; max-width: 410px; min-height: 415px; overflow: hidden; background: var(--paper); }
+.about-image-box img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 40%; filter: saturate(.77); -webkit-mask-image: linear-gradient(to bottom, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(to bottom, transparent, #000 8%, #000 92%, transparent); transition: transform .7s; }
 .about-image-box:hover img { transform: scale(1.04); }
-.image-caption { position: absolute; z-index: 1; left: 20px; bottom: 19px; color: white; font-size: 8px; letter-spacing: .17em; }
+.image-caption { position: absolute; z-index: 1; left: 20px; bottom: 19px; color: var(--ink); font-size: 8px; letter-spacing: .17em; }
 .about-image-seal { position: absolute; z-index: 2; right: -1px; top: 19px; display: grid; grid-template-columns: 21px auto; align-items: center; gap: 6px; background: var(--lime); padding: 12px 13px; font-size: 7px; line-height: 1.4; letter-spacing: .08em; }
 .about-copy { max-width: 490px; }
 .about-copy h2, .work-heading h2, .initiative-copy h2, .events-copy h2, .contact-heading h2 { margin: 0; font: 600 clamp(35px, 4.3vw, 57px)/1.14 "Manrope", sans-serif; letter-spacing: -.06em; }
@@ -239,7 +238,7 @@ img { display: block; width: 100%; }
   .nav-links a { font-size: 10px; }
   .header-actions { gap: 14px; }
   .about-layout { gap: 8vw; }
-  .about-image-box { height: 385px; }
+  .about-image-box { min-height: 385px; }
   .initiative-layout { gap: 6vw; }
   .events-layout { gap: 8vw; }
 }
@@ -276,7 +275,7 @@ img { display: block; width: 100%; }
   .value-item svg { width: 12px; flex: 0 0 auto; }
   .section-pad { padding-top: 67px; padding-bottom: 67px; }
   .about-layout { grid-template-columns: 1fr; gap: 31px; margin-top: 32px; }
-  .about-image-box { width: min(100%, 470px); height: min(108vw, 460px); }
+  .about-image-box { width: min(100%, 470px); min-height: 0; height: min(108vw, 460px); }
   .about-copy { max-width: 560px; }
   .about-copy h2, .work-heading h2, .initiative-copy h2, .events-copy h2, .contact-heading h2 { font-size: clamp(34px, 9vw, 51px); }
   .about-lede { margin-top: 16px; font-size: 12px; }
