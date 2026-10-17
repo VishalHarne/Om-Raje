@@ -5,6 +5,8 @@ import {
   ArrowUpRight,
   Check,
   ChevronDown,
+  ChevronLeft,
+  ChevronRight,
   HandHeart,
   HeartHandshake,
   Instagram,
@@ -22,6 +24,9 @@ type Language = "en" | "mr";
 const copy = {
   en: {
     nav: ["About", "Public work", "Initiatives", "Events", "Get in touch"],
+    previousCover: "Previous cover",
+    nextCover: "Next cover",
+    selectCover: "Show cover",
     heroKicker: "Your voice. Your constituency.",
     heroTitle: "A future built",
     heroAccent: "together.",
@@ -122,6 +127,9 @@ const copy = {
   },
   mr: {
     nav: ["परिचय", "लोककार्य", "उपक्रम", "कार्यक्रम", "संपर्क"],
+    previousCover: "मागील मुखपृष्ठ",
+    nextCover: "पुढील मुखपृष्ठ",
+    selectCover: "मुखपृष्ठ दाखवा",
     heroKicker: "तुमचा आवाज. तुमचा मतदारसंघ.",
     heroTitle: "एकत्र घडवूया",
     heroAccent: "उद्याचा महाराष्ट्र.",
@@ -223,8 +231,19 @@ const copy = {
 } as const;
 
 const images = {
-  coverEnglish: `${import.meta.env.BASE_URL}cover.png`,
-  coverMarathi: `${import.meta.env.BASE_URL}cover-marathi-1.png`,
+  partyLogo: `${import.meta.env.BASE_URL}shivsena.jfif`,
+  covers: {
+    en: [
+      `${import.meta.env.BASE_URL}cover.png`,
+      `${import.meta.env.BASE_URL}cover-english-2.png`,
+      `${import.meta.env.BASE_URL}cover-english-3.png`,
+    ],
+    mr: [
+      `${import.meta.env.BASE_URL}cover-marathi-1.png`,
+      `${import.meta.env.BASE_URL}cover-marathi-2.png`,
+      `${import.meta.env.BASE_URL}cover-marathi-3.png`,
+    ],
+  },
   listening: `${import.meta.env.BASE_URL}Photos/1.jpg`,
   meeting: `${import.meta.env.BASE_URL}Photos/2.jpg`,
   portrait: `${import.meta.env.BASE_URL}Photos/472720921_1146819823481492_5753702808783169087_n.jpg`,
@@ -233,10 +252,12 @@ const images = {
 
 function App() {
   const [lang, setLang] = useState<Language>("en");
+  const [coverIndex, setCoverIndex] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
   const [employmentSent, setEmploymentSent] = useState(false);
   const [grievanceSent, setGrievanceSent] = useState(false);
   const t = copy[lang];
+  const coverSlides = images.covers[lang];
   const navLinks = ["about", "work", "initiatives", "events", "contact"];
 
   function submitEmployment(event: FormEvent<HTMLFormElement>) {
@@ -253,7 +274,7 @@ function App() {
     <main lang={lang === "mr" ? "mr" : "en"} className={lang === "mr" ? "site marathi" : "site"}>
       <header className="site-header">
         <a className="brand" href="#home" aria-label="Om Raje Nimbalkar home">
-          <span className="brand-mark">ओ</span>
+          <img className="brand-logo" src={images.partyLogo} alt="Shiv Sena bow and arrow symbol" />
           <span className="brand-copy"><strong>OM RAJE</strong><small>NIMBALKAR · धाराशिव</small></span>
         </a>
         <nav className={menuOpen ? "nav-links is-open" : "nav-links"} aria-label="Main navigation">
@@ -286,12 +307,40 @@ function App() {
         </div>
       </header>
 
-      <section className="hero" id="home">
+      <section className="hero" id="home" aria-roledescription="carousel">
         <img
           className="hero-cover"
-          src={lang === "mr" ? images.coverMarathi : images.coverEnglish}
-          alt={lang === "mr" ? "ओम राजे निंबाळकर आणि जनतेसोबतचे कार्य दर्शवणारे मुखपृष्ठ" : "Om Raje Nimbalkar with residents, with the message: People's Needs, His Resolve. For a stronger, prosperous Maharashtra."}
+          src={coverSlides[coverIndex]}
+          alt={lang === "mr" ? `ओम राजे निंबाळकर यांचे मुखपृष्ठ ${coverIndex + 1}` : `Om Raje Nimbalkar landing cover ${coverIndex + 1}`}
         />
+        <button
+          className="cover-arrow cover-arrow-previous"
+          type="button"
+          aria-label={t.previousCover}
+          onClick={() => setCoverIndex((coverIndex - 1 + coverSlides.length) % coverSlides.length)}
+        >
+          <ChevronLeft aria-hidden="true" />
+        </button>
+        <button
+          className="cover-arrow cover-arrow-next"
+          type="button"
+          aria-label={t.nextCover}
+          onClick={() => setCoverIndex((coverIndex + 1) % coverSlides.length)}
+        >
+          <ChevronRight aria-hidden="true" />
+        </button>
+        <div className="cover-indicators" aria-label={`${coverIndex + 1} / ${coverSlides.length}`}>
+          {coverSlides.map((_, index) => (
+            <button
+              className={index === coverIndex ? "cover-indicator is-active" : "cover-indicator"}
+              type="button"
+              key={index}
+              aria-label={`${t.selectCover} ${index + 1}`}
+              aria-current={index === coverIndex ? "true" : undefined}
+              onClick={() => setCoverIndex(index)}
+            />
+          ))}
+        </div>
         <div className="hero-cover-actions">
           <div className="hero-cover-caption"><span className="kicker-line" />{t.heroKicker}</div>
           <div className="hero-actions">
